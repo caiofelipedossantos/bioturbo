@@ -16,7 +16,7 @@ class CreateStatesTable extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->default(DB::raw('(uuid())'));
+            $table->string('uuid')->unique();
             $table->string('name')->comment('Nome do estado.');
             $table->char('initials', 2)->comment('Sigla do estado.');
         });

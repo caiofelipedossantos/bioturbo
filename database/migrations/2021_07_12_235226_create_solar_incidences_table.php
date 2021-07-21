@@ -16,6 +16,7 @@ class CreateSolarIncidencesTable extends Migration
         Schema::create('solar_incidences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('city_id');
+            $table->string('uuid')->unique();
             $table->double('jan', 10, 5);
             $table->double('feb', 10, 5);
             $table->double('mar', 10, 5);

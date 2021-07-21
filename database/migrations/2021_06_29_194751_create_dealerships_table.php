@@ -16,7 +16,7 @@ class CreateDealershipsTable extends Migration
     {
         Schema::create('dealerships', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->default(DB::raw('(uuid())'));
+            $table->string('uuid')->unique();
             $table->unsignedBigInteger('state_id')->comment('Estado em que a concessionária atua.');
             $table->string('name')->comment('Nome da concessionária de energia.');
             $table->string('description')->nullable()->comment('Descrição da concessionária de energia.');

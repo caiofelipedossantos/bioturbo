@@ -16,7 +16,7 @@ class CreateSolarBoardsTable extends Migration
     {
         Schema::create('solar_boards', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->default(DB::raw('(uuid())'));
+            $table->string('uuid')->unique();
             $table->string('description')->comment('Descrição da placa solar.');
             $table->double('potency', 10, 4)->comment('Potência da placa solar.');
             $table->double('price', 10,2)->comment('Preço da placa solar.');
