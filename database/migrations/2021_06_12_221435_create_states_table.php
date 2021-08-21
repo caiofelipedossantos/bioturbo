@@ -19,6 +19,8 @@ class CreateStatesTable extends Migration
             $table->string('uuid')->unique();
             $table->string('name')->comment('Nome do estado.');
             $table->char('initials', 2)->comment('Sigla do estado.');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

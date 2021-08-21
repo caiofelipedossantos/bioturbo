@@ -9,4 +9,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class SolarBoard extends Model
 {
     use HasFactory, SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'uuid',
+        'description',
+        'potency',
+        'price',
+    ];
 }

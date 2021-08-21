@@ -19,6 +19,10 @@ class CreateCitiesTable extends Migration
             $table->string('uuid')->unique();
             $table->unsignedBigInteger('state_id')->comment('FK do estado.');
             $table->string('name')->comment('Nome da cidade.');
+            $table->decimal('solar_incidence', 10,5);
+            $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('state_id')->references('id')->on('states');
         });
     }

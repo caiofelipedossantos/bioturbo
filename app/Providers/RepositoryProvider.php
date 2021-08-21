@@ -6,14 +6,16 @@ use App\Repositories\Contracts\{
     CityRepositoryInterface,
     DealershipRepositoryInterface,
     SolarBoardRepositoryInterface,
-    StateRepositoryInterface
+    StateRepositoryInterface,
+    UserRepositoryInterface
 };
 
 use App\Repositories\{
-    CityRepository,
-    DealershipRepository,
-    SolarBoardRepository,
-    StateRepository
+    CityEloquentRepository,
+    DealershipEloquentRepository,
+    SolarBoardEloquentRepository,
+    StateEloquentRepository,
+    UserEloquentRepository
 };
 
 use Illuminate\Support\ServiceProvider;
@@ -29,22 +31,27 @@ class RepositoryProvider extends ServiceProvider
     {
         $this->app->bind(
             StateRepositoryInterface::class,
-            StateRepository::class
+            StateEloquentRepository::class
         );
 
         $this->app->bind(
             CityRepositoryInterface::class,
-            CityRepository::class
-        );
-
-        $this->app->bind(
-            DealershipRepositoryInterface::class,
-            DealershipRepository::class
+            CityEloquentRepository::class
         );
 
         $this->app->bind(
             SolarBoardRepositoryInterface::class,
-            SolarBoardRepository::class
+            SolarBoardEloquentRepository::class
+        );
+
+        $this->app->bind(
+            DealershipRepositoryInterface::class,
+            DealershipEloquentRepository::class
+        );
+
+        $this->app->bind(
+            UserRepositoryInterface::class,
+            UserEloquentRepository::class
         );
     }
 

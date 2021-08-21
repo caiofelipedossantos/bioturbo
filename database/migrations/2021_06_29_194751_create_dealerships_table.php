@@ -22,6 +22,8 @@ class CreateDealershipsTable extends Migration
             $table->string('description')->nullable()->comment('Descrição da concessionária de energia.');
             $table->double('tax', 10, 5)->default(0)->comment('Tarifa da concessionária de energia.');
             $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('state_id')->references('id')->on('states');
         });
     }
